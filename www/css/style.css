@@ -1,0 +1,25 @@
+/* Empty. Add your own CSS if you like */
+
+.teste {
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  text-align: center;
+}
+
+.div-foto {
+  border: 1px solid black;
+  height: 220px;
+  width: 80%;
+  margin-left: 20px;
+  background-color: silver !important;
+}
+
+.div-foto-gray div{
+  background-color: gray !important;
+}
+
+.livre {
+  background-color: green;
+}
