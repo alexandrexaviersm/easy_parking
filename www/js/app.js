@@ -57,34 +57,20 @@ angular.module('starter', ['ionic'])
      });
   }
 
-  $scope.conf1 = {
-    'border-left': true,
-    'border-top': true,
-    'border-right': true,
-    'border-bottom': false
+  function Conf(left,top,right,bottom){
+    return {
+      'border-left': left,
+      'border-top': top,
+      'border-right': right,
+      'border-bottom': bottom
+    }
   }
 
-  $scope.conf2 = {
-    'border-left': true,
-    'border-top': true,
-    'border-right': true,
-    'border-bottom': false
-  }
-
-  $scope.conf3 = {
-    'border-left': true,
-    'border-top': true,
-    'border-right': true,
-    'border-bottom': false
-  }
-
-  $scope.conf4 = {
-    'border-left': true,
-    'border-top': true,
-    'border-right': true,
-    'border-bottom': false
-  }
-
+  $scope.conf1 = new Conf(true,true,true,false);
+  $scope.conf2 = new Conf(true,true,true,false);
+  $scope.conf3 = new Conf(true,true,true,false);
+  $scope.conf4 = new Conf(true,true,true,false);
+  
   function message(response){
     $scope.detail = response;
     $scope.$apply();
