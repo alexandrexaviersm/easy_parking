@@ -38,38 +38,63 @@ angular.module('starter', ['ionic'])
   function getVagas(){
     //192.168.0.10:8080
     $http.get('http://192.168.0.10:8080',{timeout: 3000})
-     .then(function(response){
-       $scope.timeout = 0;
-       $scope.lostConnection = false;
-       var vagas = response.data;
-       $scope.vaga1 = vagas.vaga1;
-       $scope.vaga2 = vagas.vaga2;
-       $scope.vaga3 = vagas.vaga3;
-       $scope.vaga4 = vagas.vaga4;
-       $timeout(getVagas,1000);
-     })
-     .catch(function(response){
-       $scope.timeout++;
-       if($scope.timeout > 1){
-         $scope.lostConnection = true;
-       }
-       $timeout(getVagas,1000);
-     });
+      .then(function(response){
+        var setorA = 0;
+        var setorB = 0;
+        $scope.timeout = 0;
+        $scope.lostConnection = false;
+        var vagas = response.data;
+        if(vagas.vaga1 === true){
+          setorA++;
+        }
+        if(vagas.vaga2 === true){
+          setorA++; 
+        }
+        if(vagas.vaga3 === true){
+          setorB++;
+        }
+        if(vagas.vaga4 === true){
+          setorB++;
+        }
+        $scope.vaga1 = vagas.vaga1;
+        $scope.vaga2 = vagas.vaga2;
+        $scope.vaga3 = vagas.vaga3;
+        $scope.vaga4 = vagas.vaga4;
+        $scope.setorA = setorA;
+        $scope.setorB = setorB;
+        $timeout(getVagas,1000);
+      })
+      .catch(function(response){
+        $scope.timeout++;
+        if($scope.timeout > 1){
+          $scope.lostConnection = true;
+        }
+        $timeout(getVagas,1000);
+      });
   }
 
-  function Conf(left,top,right,bottom){
+  function Conf(left,top,right,bottom,uiT,uiL,uiW,uiH){
     return {
       'border-left': left,
       'border-top': top,
       'border-right': right,
-      'border-bottom': bottom
+      'border-bottom': bottom,
+      'uiT': uiT,
+      'uiL': uiL,
+      'uiW': uiW,
+      'uiH': uiH
     }
   }
 
-  $scope.conf1 = new Conf(true,true,true,false);
-  $scope.conf2 = new Conf(true,true,true,false);
-  $scope.conf3 = new Conf(true,true,true,false);
-  $scope.conf4 = new Conf(true,true,true,false);
+  $scope.confA1 = new Conf(true,true,true,false,10,10,15,30);
+  $scope.confA2 = new Conf(true,true,true,false,10,25,15,30);
+  $scope.confB1 = new Conf(true,true,true,false,10,60,15,30);
+  $scope.confB2 = new Conf(true,true,true,false,10,75,15,30);
+
+  $scope.labelA = new Conf(false,false,false,false,40,10,30,5);
+  $scope.labelB = new Conf(false,false,false,false,40,60,30,5);
+
+
   
   function message(response){
     $scope.detail = response;

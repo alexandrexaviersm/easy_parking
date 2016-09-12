@@ -1,6 +1,16 @@
 /* Empty. Add your own CSS if you like */
 
-.teste {
+.div-label-vagas {
+  position: absolute;
+  text-align: center;
+}
+
+.label-vagas {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.div-vaga {
   background-color: red;
   height: 20px;
   width: 20px;
@@ -10,8 +20,8 @@
 
 .div-foto {
   border: 1px solid black;
-  height: 220px;
-  width: 80%;
+  height: 300px;
+  width: 90%;
   margin-left: 20px;
   background-color: silver !important;
 }
@@ -20,6 +30,6 @@
   background-color: gray !important;
 }
 
-.livre {
+.div-vaga.livre {
   background-color: green;
 }

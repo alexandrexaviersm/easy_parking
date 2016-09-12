@@ -2,13 +2,17 @@
   <ion-content>
     <h1>Parking</h1>
     <div style="margin-left: 20px;" class="div-foto" div-parking ng-class="{'div-foto-gray': lostConnection}">
-      <div ui-parking conf="conf1" left="10" top="10" ui-h="30" ui-w="20" class="teste" ng-class="{livre: vaga1}">A1</div>
-      <div ui-parking conf="conf2" left="30" top="10" ui-h="30" ui-w="20" class="teste" ng-class="{livre: vaga2}">A2</div>
-      <div ui-parking conf="conf3" left="50" top="10" ui-h="30" ui-w="20" class="teste" ng-class="{livre: vaga3}">A3</div>
-      <div ui-parking conf="conf4" left="70" top="10" ui-h="30" ui-w="20" class="teste" ng-class="{livre: vaga4}">A4</div>
+      <div ui-parking conf="labelA" class="div-label-vagas label-vagas">Setor A</div>
+      <div ui-parking conf="labelB" class="div-label-vagas label-vagas">Setor B</div>
+      <div ui-parking conf="confA1" class="div-vaga label-vagas" ng-class="{livre: vaga1}">A1</div>
+      <div ui-parking conf="confA2" class="div-vaga label-vagas" ng-class="{livre: vaga2}">A2</div>
+      <div ui-parking conf="confB1" class="div-vaga label-vagas" ng-class="{livre: vaga3}">B1</div>
+      <div ui-parking conf="confB2" class="div-vaga label-vagas" ng-class="{livre: vaga4}">B2</div>
+    </div>
+    <div ng-if="!lostConnection" style="margin-left: 20px;">
+      <h5 class="label-vagas">Setor A: {{setorA}}</h5>
+      <h5 class="label-vagas">Setor B: {{setorB}}</h5>
     </div>
     <h5 ng-if="lostConnection">Conexão não encontrada</h5>
-    <!-- <button onclick="window.plugins.insomnia.keepAwake(success,error)">keep awake</button>
-    <button onclick="window.plugins.insomnia.allowSleepAgain()">allow sleep again</button> -->
   </ion-content>
 </ion-view>
