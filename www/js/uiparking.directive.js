@@ -14,25 +14,16 @@ function uiParkingDirective(){
         'border-bottom': '2px solid black'
       }
 
-      var left = Number(scope.left);
-      var top = Number(scope.top);
-      var height = Number(scope.uiH) || 20;
-      var width = Number(scope.uiW) || 20;
+      var left = Number(scope.conf.uiL);
+      var top = Number(scope.conf.uiT);
+      var height = Number(scope.conf.uiH) || 20;
+      var width = Number(scope.conf.uiW) || 20;
 
       angular.forEach(scope.conf,function(obj,index){
         initConf[index] = (obj)?initConf[index]:'';
       });
 
-      // angular.merge(initConf,{
-      //   height: height + 'px',
-      //   width: width + 'px'
-      // });
-
       elem.css(initConf);
-      // elem.css({
-      //   height: height + 'px',
-      //   weight: weight + 'px'
-      // });
 
       ctrl.register(elem,left,top,height,width);
 
@@ -42,10 +33,6 @@ function uiParkingDirective(){
       });
     },
     scope: {
-      left: '@',
-      top: '@',
-      uiH: '@',
-      uiW: '@',
       conf: '='
     },
     require: '^^divParking'
