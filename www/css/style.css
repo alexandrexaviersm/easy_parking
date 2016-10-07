@@ -1,35 +1,57 @@
 /* Empty. Add your own CSS if you like */
 
+h1.title {
+  font-weight: bold;
+}
+
 .div-label-vagas {
   position: absolute;
   text-align: center;
 }
 
 .label-vagas {
-  font-size: 16px;
+  color: white;
+  font-size: 14px;
+  padding: 4px;
   font-weight: bold;
 }
 
 .div-vaga {
-  background-color: red;
+  background-color: #ef473a;
   height: 20px;
   width: 20px;
   position: absolute;
   text-align: center;
+  border: 0px solid #ffc900;
+}
+
+.div-vaga span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal; 
 }
 
 .div-foto {
-  border: 1px solid black;
-  height: 300px;
-  width: 90%;
-  margin-left: 20px;
-  background-color: silver !important;
+  border-radius: 10px;
+  height: 50vh;
+  background-color: #444444;
 }
 
-.div-foto-gray div{
-  background-color: gray !important;
+.div-foto-gray > div.div-vaga{
+  background-color: gray;
+}
+
+.div-foto-gray {
+  color: white;
+  background-color: #444444;
 }
 
 .div-vaga.livre {
-  background-color: green;
+  background-color: #28a54c;
+}
+
+.header-icon-img {
+  width: 33px;
+  right: 10px;
+  position: absolute;
 }

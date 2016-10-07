@@ -8,10 +8,10 @@ function uiParkingDirective(){
       var w = angular.element(window);
 
       var initConf = {
-        'border-left': '2px solid black',
-        'border-top': '2px solid black',
-        'border-right': '2px solid black',
-        'border-bottom': '2px solid black'
+        'border-left-width': '3px',
+        'border-top-width': '3px',
+        'border-right-width': '3px',
+        'border-bottom-width': '3px'
       }
 
       var left = Number(scope.conf.uiL);
@@ -82,22 +82,9 @@ function uiParkingDirective(){
             left: offsetLeft + moreLeft + 'px',
             top: offsetTop + moreTop + 'px',
             width: newWidth + 'px',
-            height: newHeight + 'px'
+            height: newHeight + 'px',
+            'line-height': newHeight + 'px'
           });
-        }
-
-        function otherRegister(elem,conf){
-          // var offsetTop    = Number($element[0].offsetTop);
-          // var offsetLeft   = Number($element[0].offsetLeft);
-          // var offsetWidth  = Number($element[0].offsetWidth);
-          // var offsetHeight = Number($element[0].offsetHeight);
-
-          // var moreLeft = offsetWidth  * left / 100;
-          // var moreTop  = offsetHeight * top / 100;
-          // elem.css({
-          //   left: offsetLeft + moreLeft + 'px',
-          //   top: offsetTop + moreTop + 'px'
-          // });
         }
     }
 })();

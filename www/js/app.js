@@ -28,21 +28,22 @@ angular.module('starter', ['ionic'])
     .state('app',{
       url: '/app',
       templateUrl: 'templates/app.html',
-      controller: 'AppCtrl'
+      controller: 'AppCtrl',
+      controllerAs: '$ctrl'
     });
   $urlRouterProvider.otherwise('/app');
 })
 
-.controller('AppCtrl',function($scope,$http,$timeout){
-  $scope.timeout = 0;
+.controller('AppCtrl',function($http,$timeout){
+  var _timeout = 0, vm = this;
   function getVagas(){
     //192.168.0.10:8080
     $http.get('http://192.168.0.10:8080',{timeout: 3000})
       .then(function(response){
         var setorA = 0;
         var setorB = 0;
-        $scope.timeout = 0;
-        $scope.lostConnection = false;
+        _timeout = 0;
+        vm.lostConnection = false;
         var vagas = response.data;
         if(vagas.vaga1 === true){
           setorA++;
@@ -56,18 +57,18 @@ angular.module('starter', ['ionic'])
         if(vagas.vaga4 === true){
           setorB++;
         }
-        $scope.vaga1 = vagas.vaga1;
-        $scope.vaga2 = vagas.vaga2;
-        $scope.vaga3 = vagas.vaga3;
-        $scope.vaga4 = vagas.vaga4;
-        $scope.setorA = setorA;
-        $scope.setorB = setorB;
+        vm.vaga1 = vagas.vaga1;
+        vm.vaga2 = vagas.vaga2;
+        vm.vaga3 = vagas.vaga3;
+        vm.vaga4 = vagas.vaga4;
+        vm.setorA = setorA;
+        vm.setorB = setorB;
         $timeout(getVagas,1000);
       })
       .catch(function(response){
-        $scope.timeout++;
-        if($scope.timeout > 1){
-          $scope.lostConnection = true;
+        _timeout++;
+        if(_timeout > 1){
+          vm.lostConnection = true;
         }
         $timeout(getVagas,1000);
       });
@@ -75,10 +76,10 @@ angular.module('starter', ['ionic'])
 
   function Conf(left,top,right,bottom,uiT,uiL,uiW,uiH){
     return {
-      'border-left': left,
-      'border-top': top,
-      'border-right': right,
-      'border-bottom': bottom,
+      'border-left-width': left,
+      'border-top-width': top,
+      'border-right-width': right,
+      'border-bottom-width': bottom,
       'uiT': uiT,
       'uiL': uiL,
       'uiW': uiW,
@@ -86,22 +87,13 @@ angular.module('starter', ['ionic'])
     }
   }
 
-  $scope.confA1 = new Conf(true,true,true,false,10,10,15,30);
-  $scope.confA2 = new Conf(true,true,true,false,10,25,15,30);
-  $scope.confB1 = new Conf(true,true,true,false,10,60,15,30);
-  $scope.confB2 = new Conf(true,true,true,false,10,75,15,30);
+  vm.confA1 = new Conf(true,true,true,false,10,10,15,30);
+  vm.confA2 = new Conf(true,true,true,false,10,25,15,30);
+  vm.confB1 = new Conf(true,true,true,false,10,60,15,30);
+  vm.confB2 = new Conf(true,true,true,false,10,75,15,30);
 
-  $scope.labelA = new Conf(false,false,false,false,40,10,30,5);
-  $scope.labelB = new Conf(false,false,false,false,40,60,30,5);
+  vm.labelA = new Conf(false,false,false,false,40,10,30,5);
+  vm.labelB = new Conf(false,false,false,false,40,60,30,5);
 
-
-  
-  function message(response){
-    $scope.detail = response;
-    $scope.$apply();
-  }
-
-  var success = message;
-  var error = message;
   getVagas();
 });

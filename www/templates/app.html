@@ -1,18 +1,23 @@
-<ion-view view-title="Playlist">
+<ion-view view-title="merda">
   <ion-content>
-    <h1>Parking</h1>
-    <div style="margin-left: 20px;" class="div-foto" div-parking ng-class="{'div-foto-gray': lostConnection}">
-      <div ui-parking conf="labelA" class="div-label-vagas label-vagas">Setor A</div>
-      <div ui-parking conf="labelB" class="div-label-vagas label-vagas">Setor B</div>
-      <div ui-parking conf="confA1" class="div-vaga label-vagas" ng-class="{livre: vaga1}">A1</div>
-      <div ui-parking conf="confA2" class="div-vaga label-vagas" ng-class="{livre: vaga2}">A2</div>
-      <div ui-parking conf="confB1" class="div-vaga label-vagas" ng-class="{livre: vaga3}">B1</div>
-      <div ui-parking conf="confB2" class="div-vaga label-vagas" ng-class="{livre: vaga4}">B2</div>
+    <div class="bar bar-header bar-assertive">
+      <h1 class="title">Easy Parking</h1>
+      <img src="./img/icon-estacionamento.png" class="header-icon-img">
     </div>
-    <div ng-if="!lostConnection" style="margin-left: 20px;">
-      <h5 class="label-vagas">Setor A: {{setorA}}</h5>
-      <h5 class="label-vagas">Setor B: {{setorB}}</h5>
+    <div class="content padding has-header">
+      <div class="div-foto" div-parking ng-class="{'div-foto-gray': $ctrl.lostConnection}">
+        <div ui-parking conf="$ctrl.labelA" class="div-label-vagas label-vagas">Setor A</div>
+        <div ui-parking conf="$ctrl.labelB" class="div-label-vagas label-vagas">Setor B</div>
+        <div ui-parking conf="$ctrl.confA1" class="div-vaga label-vagas" ng-class="{livre: $ctrl.vaga1}">A1</div>
+        <div ui-parking conf="$ctrl.confA2" class="div-vaga label-vagas" ng-class="{livre: $ctrl.vaga2}">A2</div>
+        <div ui-parking conf="$ctrl.confB1" class="div-vaga label-vagas" ng-class="{livre: $ctrl.vaga3}">B1</div>
+        <div ui-parking conf="$ctrl.confB2" class="div-vaga label-vagas" ng-class="{livre: $ctrl.vaga4}">B2</div>
+      </div>
+      <div ng-if="!$ctrl.lostConnection">
+        <h5 class="">Setor A: {{$ctrl.setorA}}</h5>
+        <h5 class="">Setor B: {{$ctrl.setorB}}</h5>
+      </div>
+      <h5 ng-if="$ctrl.lostConnection">Conexão não encontrada</h5>
     </div>
-    <h5 ng-if="lostConnection">Conexão não encontrada</h5>
   </ion-content>
 </ion-view>
